@@ -2,6 +2,7 @@
 import React from 'react'
 import '../styles/globals.css'
 import Menu from './Menu';
+
 export default function layout({ children }) {
   return (
     <html>
