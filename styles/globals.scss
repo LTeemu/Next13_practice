@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-size: 1.125rem;
+  font-size: clamp(1.125rem, 1.05rem + 0.375vw, 1.5rem);
+}

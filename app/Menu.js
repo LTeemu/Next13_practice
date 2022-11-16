@@ -11,7 +11,7 @@ export default function Menu() {
 
   useEffect(() => {
     tl.current = gsap.timeline({ paused: true, defaults: { ease: Linear, duration: 0.4 } })
-    tl.current.to(menu.current, { top: '-1rem', right: '-1rem', width: '100vw', height: '100vh', borderRadius: 0 })
+    tl.current.fromTo(menu.current, { top: '1rem', right: '1rem', width: '3rem', height: '3rem', borderRadius: 99 }, { top: 0, right: 0, width: '100vw', height: '100vh', borderRadius: 0 })
     tl.current.set(".link", { opacity: 1 }, '>')
     tl.current.fromTo(".linkCover", { height: '100%' }, { height: 0, pointerEvents: 'auto', stagger: 0.2, duration: 0.3, ease: Linear }, '<+0.2')
   }, [])
@@ -21,11 +21,11 @@ export default function Menu() {
   }, [menuOpen])
 
   return (
-    <div className='fixed z-20 flex items-center justify-center rounded-full right-4 top-4 h-[60px] w-[60px]'>
-      <button onClick={() => setMenuOpen(!menuOpen)} className='absolute z-20 flex items-center justify-center w-full h-full rounded-full bg-stone-900'>
-        <FiMenu size={32} color='white' />
+    <>
+      <button onClick={() => setMenuOpen(!menuOpen)} className='fixed z-20 flex items-center justify-center w-12 h-12 rounded-full top-4 right-4 backdrop-brightness-[0.7]'>
+        <FiMenu size={'2rem'} color='white' />
       </button>
-      <div ref={menu} className='absolute top-0 right-0 z-10 w-full h-full bg-stone-800 outline outline-gray-400' style={{ borderRadius: 99 }}>
+      <div ref={menu} className='fixed z-10 w-12 h-12 top-4 right-4 outline outline-gray-400 bg-stone-800' style={{ borderRadius: 9999 }}>
         <nav className='absolute flex flex-col px-4 mt-[120px] w-full items-center text-3xl'>
           <div className='relative opacity-0 link'>
             <div className='absolute top-0 z-20 w-full my-1 pointer-events-none bg-stone-800 linkCover'></div>
@@ -50,6 +50,6 @@ export default function Menu() {
 
         </nav>
       </div>
-    </div>
+    </>
   )
 }
