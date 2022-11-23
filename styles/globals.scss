@@ -6,3 +6,46 @@
   font-size: 1.125rem;
   font-size: clamp(1.125rem, 1.05rem + 0.375vw, 1.5rem);
 }
+
+.rhap_stacked, .rhap_stacked {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  width: 100vw;
+}
+
+.rhap_main {
+  display: flex;
+  flex-direction: row;
+}
+
+.rhap_controls-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.4rem;
+  padding: 0.4rem;
+}
+
+.rhap_current-time {
+   grid-column: span 2; 
+}
+
+.rhap_main-controls, .rhap_volume-controls, .rhap_current-time {
+  margin: auto;
+}
+
+.rhap_progress-section {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.rhap_button-clear, .rhap_current-time {
+  display: flex;
+  align-self: center;
+}
+
+.singleSelect {
+  pointer-events: all;
+}

@@ -7,7 +7,7 @@ export default function layout({ children }) {
   return (
     <html>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className='bg-blue-100'>
         <Menu />
