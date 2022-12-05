@@ -7,7 +7,7 @@ const headers = new Headers({
 })
 
 const getStations = async () => {
-  const res = await fetch('https://de1.api.radio-browser.info/json/stations/topclick?hidebroken=true?limit=50', { method: 'GET', headers: headers, cache: 'force-cache' })
+  const res = await fetch('https://de1.api.radio-browser.info/json/stations/topclick?hidebroken=true&limit=100', { method: 'GET', headers: headers, cache: 'force-cache' })
   const stationData = await res.json()
   return stationData
 }

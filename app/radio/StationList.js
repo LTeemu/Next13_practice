@@ -139,8 +139,8 @@ const StationList = ({ stations }) => {
   ]
 
   const filterStations = (stations) => {
-    const limit = 50
-    if (countries.length > 0 && tags > 0) {
+    const limit = 100
+    if (countries.length > 0 && tags.length > 0) {
       let filterByCountry = stations.filter((station) => countries.includes(station.country))
       let filterByTags = filterByCountry.filter((station) => station.tags.split(',').some((tag => tags.includes(tag))))
       let mostClicks = filterByTags.sort((a, b) => { return a.clickcount < b.clickcount })
@@ -184,6 +184,7 @@ const StationList = ({ stations }) => {
 
   return (
     <>
+      <p>Filters already fetched stations</p>
       <Multiselect
         placeholder="Country (optional)"
         options={countryOptions}
