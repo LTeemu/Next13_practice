@@ -3,7 +3,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap, Linear } from "gsap";
 import Link from 'next/link';
 import { FiMenu } from "react-icons/fi";
-import { usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation'
+
+const links = [
+  { name: "Home", url: "/" },
+  { name: "Radio", url: "/radio" },
+  { name: "Test 1", url: "/test1" },
+]
 
 export default function Menu() {
   const path = usePathname();
@@ -34,27 +40,19 @@ export default function Menu() {
       </button>
 
       <div ref={menu} className={`fixed z-10 w-12 h-12 top-4 right-4 outline outline-gray-400 bg-stone-800 ${menuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`} style={{ borderRadius: 9999 }}>
-        <nav className='absolute flex flex-col px-4 mt-[120px] w-full items-center text-3xl'>
-          <div className='relative opacity-0 link'>
-            <div className='absolute top-0 z-20 w-full my-1 pointer-events-none bg-stone-800 linkCover'></div>
-            <Link href="/" className='z-10 text-white before:w-0 hover:before:w-full before:-z-10 before:h-1 hover:before:left-0 before:left-full before:absolute before:-bottom-1 before:bg-violet-400 before:transition-all before:duration-700 hover:before:bg-green-400'>
-              Home
-            </Link>
-          </div>
-
-          <div className='relative mt-4 opacity-0 link'>
-            <div className='absolute top-0 z-20 w-full my-1 pointer-events-none bg-stone-800 linkCover'></div>
-            <Link href="/radio" className='z-10 text-white before:w-0 hover:before:w-full before:-z-10 before:h-1 hover:before:left-0 before:left-full before:absolute before:-bottom-1 before:bg-violet-400 before:transition-all before:duration-700 hover:before:bg-green-400'>
-              Radio
-            </Link>
-          </div>
-
-          <div className='relative mt-4 opacity-0 link'>
-            <div className='absolute top-0 z-20 w-full my-1 pointer-events-none bg-stone-800 linkCover'></div>
-            <Link href="/" className='z-10 text-white before:w-0 hover:before:w-full before:-z-10 before:h-1 hover:before:left-0 before:left-full before:absolute before:-bottom-1 before:bg-violet-400 before:transition-all before:duration-700 hover:before:bg-green-400'>
-              Lorem Lipsum Link
-            </Link>
-          </div>
+        <nav>
+          <ul className='flex flex-col items-center h-screen gap-4 mt-4 text-3xl'>
+            {links.map((link) => {
+              return (
+                <li key={link.name} className='relative opacity-0 link'>
+                  <div className='absolute top-0 z-20 w-full my-1 pointer-events-none bg-stone-800 linkCover'></div>
+                  <Link href={link.url} className={`z-10 text-white before:w-0 hover:before:w-full before:-z-10 before:h-1 hover:before:left-0 before:left-full before:absolute before:-bottom-1 before:bg-violet-400 before:transition-all before:duration-700 hover:before:bg-green-400 ${path === link.url && 'text-orange-600 pointer-events-none'}`}>
+                    {link.name}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
         </nav>
       </div>
     </>

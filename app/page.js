@@ -15,7 +15,7 @@ export default function page() {
             </div>
           </div>
           <div className='relative min-h-[300px] max-h-[900px] h-[60vh] flex items-center justify-center flex-1 order-1 sm:order-2'>
-            <Image src={'/giphy.gif'} alt='gif' fill className='object-contain m-auto max-h-[60%]' />
+            <Image src={'/giphy.gif'} fill sizes='480px' alt='gif' className='object-contain aspect-square m-auto max-h-[60%]' />
           </div>
         </div>
 
